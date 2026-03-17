@@ -1,5 +1,9 @@
 # Tradeiros Hedge Pro - Visualização de Ordens
 
+> [!CAUTION]
+> **PROJETO EM DESENVOLVIMENTO (ALPHA)**  
+> Esta biblioteca está em fase inicial de desenvolvimento. Use com cautela e verifique sempre as ordens diretamente na exchange. A versão atual é focada em testes e validação da comunidade **Tradeiros**.
+
 Este projeto é uma biblioteca Python desenvolvida exclusivamente para a comunidade **[tradeiros.com.br](https://tradeiros.com.br)**. O objetivo principal é fornecer uma visualização clara e consolidada da distribuição de ordens e dos níveis de proteção de capital em BTC, seguindo a metodologia **Tradeiros Hedge Pro**.
 
 ## 🚀 Objetivo
@@ -7,9 +11,9 @@ Facilitar o acompanhamento das estratégias de proteção em múltiplos níveis,
 
 ## 🏦 Exchanges Suportadas
 Atualmente, a biblioteca suporta as seguintes plataformas:
-*   **OKX** (Testes em andamento)
-*   **Bitget**  (Em desenvolvimento) 
-*   **Bybit** (Em breve/Implementação inicial)
+*   **OKX** (Homologada)
+*   **Bitget** (Homologada)
+*   **Bybit** (Em desenvolvimento)
 
 ## 🛡️ Segurança (Recomendações Importantes)
 A segurança dos seus ativos é prioridade absoluta:
@@ -18,10 +22,10 @@ A segurança dos seus ativos é prioridade absoluta:
 *   **Privacidade**: A biblioteca é open-source, roda localmente e **não armazena, transmite ou compartilha** nenhuma informação de acesso ou credenciais.
 
 ## 📥 Instalação
-A biblioteca pode ser instalada facilmente via pip:
+A biblioteca pode ser instalada via pip (versões de desenvolvimento podem exigir a flag `--pre`):
 
 ```bash
-pip install tradeiros
+pip install tradeiros --pre
 ```
 
 ## ⚙️ Configuração
@@ -38,7 +42,7 @@ BITGET_API_KEY=sua_key
 BITGET_API_SECRET=seu_secret
 BITGET_PASSPHRASE=sua_passphrase
 
-# Bybit
+# Bybit (Em breve)
 BYBIT_API_KEY=sua_key
 BYBIT_API_SECRET=seu_secret
 ```
@@ -47,18 +51,18 @@ BYBIT_API_SECRET=seu_secret
 O uso foi projetado para ser o mais simples possível:
 
 ```python
-from tradeiros.Tradeiros import Tradeiros
+from tradeiros import Tradeiros
 
-# Inicialize para a exchange desejada ("okx", "bitget" ou "bybit")
+# Inicialize para a exchange desejada ("okx" ou "bitget")
 tradeiros = Tradeiros("okx")
 
-# Recupere os dados consolidados e o patrimônio
-df, patrimonio = tradeiros.atualizar()
+# Recupere os dados consolidados e exiba os resultados
+df = tradeiros.atualizar()
 
-# Exiba os resultados
+# Exiba o DataFrame e o Patrimônio consolidado
 print(df)
-print(f"Patrimônio Total: {patrimonio:.8f}")
-print(f"1% do patrimônio: {patrimonio * 0.01:.8f}")
+print(f"Patrimônio Total: {tradeiros.patrimonio():.8f}")
+print(f"1% do patrimônio: {tradeiros.patrimonio() * 0.01:.8f}")
 ```
 
 ## 📊 Ambiente Recomendado
@@ -68,8 +72,9 @@ O formato de tabelas do Jupyter facilita muito a leitura do DataFrame de ordens 
 ## 🛠️ Detalhes Técnicos e Funcionamento
 Esta seção descreve o funcionamento interno da biblioteca para desenvolvedores e entusiastas que desejam entender como os dados são processados.
 
-*(Espaço reservado para documentação técnica futura sobre a lógica de consolidação, agrupamento sequencial e tratamento de ordens condicionais/trigger).*
-
+*   **Identificação Sequencial**: O motor de consolidação agrupa ordens automagicamente por tipo e operação sequencial para reduzir o ruído visual.
+*   **Data de Criação**: Todas as ordens agora exibem a data original de criação (ou a data da primeira ordem do grupo).
+*   **Conversão para USD**: Para exchanges Coin-M (Inverso), a biblioteca faz a conversão automática baseada no preço atual para que você veja sua exposição em Dólares.
 
 <div style="text-align: center;">
   <img src="img/Untitled (1).png" alt="Centered image">
