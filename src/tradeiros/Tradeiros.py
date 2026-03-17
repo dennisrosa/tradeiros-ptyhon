@@ -21,15 +21,19 @@ class Tradeiros:
 
     def atualizar(self):
         df, patrimonio = self.exchange.atualizar()
-        return df, patrimonio
-        
+        self._df = df
+        self._patrimonio = patrimonio
+        return self._df
 
+    def patrimonio(self):
+        return self._patrimonio
+        
 if __name__ == "__main__":
     tradeiros = Tradeiros("okx")
-    df, patrimonio = tradeiros.atualizar()
+    df = tradeiros.atualizar()
     print(df)
-    print("Patrimônio: ", patrimonio)
-    print("1% do patrimônio: ", patrimonio*0.01)
+    print("Patrimônio: ", tradeiros.patrimonio())
+    print("1% do patrimônio: ", tradeiros.patrimonio()*0.01)
 
     print("\n")
     
