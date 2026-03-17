@@ -11,9 +11,9 @@ Facilitar o acompanhamento das estratégias de proteção em múltiplos níveis,
 
 ## 🏦 Exchanges Suportadas
 Atualmente, a biblioteca suporta as seguintes plataformas:
-*   **OKX** (Homologada)
-*   **Bitget** (Homologada)
-*   **Bybit** (Em desenvolvimento)
+*   **OKX** (Testes em andamento)
+*   **Bitget**  (Em desenvolvimento) 
+*   **Bybit** (Em breve/Implementação inicial)
 
 ## 🛡️ Segurança (Recomendações Importantes)
 A segurança dos seus ativos é prioridade absoluta:
@@ -42,7 +42,7 @@ BITGET_API_KEY=sua_key
 BITGET_API_SECRET=seu_secret
 BITGET_PASSPHRASE=sua_passphrase
 
-# Bybit (Em breve)
+# Bybit
 BYBIT_API_KEY=sua_key
 BYBIT_API_SECRET=seu_secret
 ```
@@ -66,7 +66,7 @@ print(f"1% do patrimônio: {tradeiros.patrimonio() * 0.01:.8f}")
 ```
 
 ## 📊 Ambiente Recomendado
-Para uma experiência mais amigável e visual, recomendamos o uso do **Jupyter Notebook** através da distribuição **Anaconda**. 
+Para uma experiência mais amigável e visual, recomendamos o uso do **Jupyter Notebook** através da distribuição **[Anaconda](https://www.anaconda.com/products/distribution)**. 
 O formato de tabelas do Jupyter facilita muito a leitura do DataFrame de ordens gerado pela biblioteca.
 
 ## 🛠️ Detalhes Técnicos e Funcionamento
