@@ -1,0 +1,6 @@
+pandas
+python-dotenv
+python-okx >= 0.4.1
+ccxt
+bitget >= 0.0.128
+aiohttp
