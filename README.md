@@ -72,20 +72,26 @@ O formato de tabelas do Jupyter facilita muito a leitura do DataFrame de ordens 
 ## 🛠️ Detalhes Técnicos e Funcionamento
 Esta seção descreve o funcionamento interno da biblioteca para desenvolvedores e entusiastas que desejam entender como os dados são processados.
 
+*   **Gestão de Dados em Tempo Real**: O sistema sincroniza as ordens diretamente com a API da exchange, permitindo o cálculo instantâneo do patrimônio líquido e dos níveis de exposição. Todos os percentuais — sejam de ordens abertas, reforços (aumento de mão), realizações (diminuição) ou pontos de invalidação de blocos — são atualizados dinamicamente conforme a oscilação do preço do BTC, garantindo precisão total na execução do **Hedge Pro**. Sem precisar de calculadora e sem ter que recalcular todos os valores manualmente.
 *   **Identificação Sequencial**: O motor de consolidação agrupa ordens automagicamente por tipo e operação sequencial para reduzir o ruído visual.
 *   **Data de Criação**: Todas as ordens agora exibem a data original de criação (ou a data da primeira ordem do grupo).
 *   **Conversão para USD**: Para exchanges Coin-M (Inverso), a biblioteca faz a conversão automática baseada no preço atual para que você veja sua exposição em Dólares.
 
+### Visualização das Proteções e Ordens (Exemplos)
+
 <div style="text-align: center;">
-  <img src="img/Untitled (1).png" alt="Centered image">
+  <p><b>Short de Proteção</b></p>
+  <img src="img/short_protecao.png" alt="Visualização do Short de Proteção no Tradeiros Hedge Pro" width="800">
 </div>
 <br>
 <div style="text-align: center;">
-  <img src="img/Untitled (2).png" alt="Centered image">
+  <p><b>Ordens Escalonadas (Grid Sequential)</b></p>
+  <img src="img/ordens_escalonadas.png" alt="Distribuição de Ordens Escalonadas" width="800">
 </div>
 <br>
 <div style="text-align: center;">
-  <img src="img/Untitled (3).png" alt="Centered image">
+  <p><b>Visualização de Ordem a Mercado</b></p>
+  <img src="img/ordem_mercado.png" alt="Execução de Ordem a Mercado" width="800">
 </div>
 <br>
 <br>
