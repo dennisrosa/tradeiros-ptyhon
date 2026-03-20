@@ -78,7 +78,8 @@ class Tradeiros:
         import matplotlib.pyplot as plt
         import numpy as np
 
-        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
+        # Reduzi o tamanho da figura de (14, 6) para (10, 4)
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
 
         # ===== GRÁFICO 1: Exposição =====
         ax1.pie(df_exposicao['Valor'], 
@@ -87,9 +88,10 @@ class Tradeiros:
                 autopct='%1.1f%%',
                 startangle=90,
                 explode=df_exposicao['Explode'],
-                shadow=True)
+                shadow=True,
+                textprops={'fontsize': 10}) # Fonte reduzida
 
-        ax1.set_title('Exposição', fontsize=14, fontweight='bold')
+        ax1.set_title('Exposição', fontsize=12, fontweight='bold')
         ax1.axis('equal')
 
         # ===== GRÁFICO 2: Margem =====
@@ -99,12 +101,18 @@ class Tradeiros:
                 autopct='%1.1f%%',
                 startangle=90,
                 explode=df_margem['Explode'],
-                shadow=True)
+                shadow=True,
+                textprops={'fontsize': 10}) # Fonte reduzida
 
-        ax2.set_title('Margem', fontsize=14, fontweight='bold')
+
+        ax2.set_title('Margem', fontsize=12, fontweight='bold')
         ax2.axis('equal')
 
         plt.tight_layout()
+        
+        # Fecha a figura no estado global para evitar renderização dupla no Jupyter
+        plt.close(fig)
+        
         return fig
 
 
