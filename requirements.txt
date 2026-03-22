@@ -5,3 +5,5 @@ ccxt
 matplotlib
 numpy
 aiohttp
+dash
+dash-ag-grid
