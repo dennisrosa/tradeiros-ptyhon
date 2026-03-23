@@ -97,5 +97,22 @@ Esta seção descreve o funcionamento interno da biblioteca para desenvolvedores
 <br>
 <br>
 
+### Dashboard em Tempo Real
+
+<div style="text-align: center;">
+  <p><b>Dashboard em Tempo Real</b></p>
+  <img src="img/dashboard.png" alt="Dashboard em Tempo Real" width="800">
+</div>
+<br>
+<br>
+<br>
+
+Para rodar o dashboard, utilize o comando abaixo:
+
+```bash
+python .\dash\dashboard.py
+```
+
+
 ---
 Desenvolvido para a comunidade **Tradeiros**. 🚀
